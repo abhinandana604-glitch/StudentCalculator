@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Grade Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Student Grade Calculator</h1>
+  <p>Enter marks for five subjects. Your grade is marked and saved to the records below.</p>
+</header>
+
+<main class="layout">
+  <section class="card" aria-labelledby="enter">
+    <h2 id="enter">Enter marks</h2>
+    <form id="gradeForm" novalidate>
+      <div class="pair">
+        <label>Student name<input id="name" autocomplete="off" placeholder="Abhinandana"></label>
+        <label>Roll number<input id="roll" autocomplete="off" placeholder="CS001"></label>
+      </div>
+      <div class="subjects" id="subjects"></div>
+      <p class="error" id="error" role="alert"></p>
+      <div class="actions">
+        <button class="btn primary" type="submit">Calculate and save</button>
+        <button class="btn ghost" type="reset" id="resetBtn">Clear form</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="card result" id="result" aria-live="polite">
+    <h2>Result</h2>
+    <div class="empty" id="empty">Fill in the form and choose Calculate and save to see the grade here.</div>
+    <div class="marked" id="marked" hidden>
+      <div class="stamp" id="stamp">A</div>
+      <dl>
+        <dt>Student</dt><dd id="rName">-</dd>
+        <dt>Total</dt><dd id="rTotal">-</dd>
+        <dt>Percentage</dt><dd id="rPct">-</dd>
+        <dt>Grade points</dt><dd id="rGp">-</dd>
+        <dt>Status</dt><dd id="rStatus">-</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="card wide" aria-labelledby="records">
+    <div class="head">
+      <h2 id="records">Saved records</h2>
+      <input id="search" type="search" placeholder="Search by name or roll number" aria-label="Search records">
+    </div>
+    <div class="stats" id="stats"></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Roll</th><th>Name</th><th>Total</th><th>%</th><th>Grade</th><th>Status</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="noRows">No records yet. Saved students will appear here.</p>
+    <button class="btn ghost small" id="clearAll" type="button">Delete all records</button>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
